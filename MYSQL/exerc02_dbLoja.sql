@@ -1,6 +1,9 @@
+-- criando o database (db)
 create database db_loja;
+-- selecionando o database (db)
 use db_loja;
 
+-- criando a tabela de produtos tb_produtos
 create table tb_produtos(
 	id bigint auto_increment, 
     nome varchar(20),
@@ -9,8 +12,9 @@ create table tb_produtos(
     categoria varchar(20),
     
     primary key (id)
-)
+);
 
+-- inserindo dados na tabela tb_produtos 
 insert into tb_produtos(nome, marca, preco, categoria) values ("Camisa Preta", "C&A", 29.90, "Adulto");
 insert into tb_produtos(nome, marca, preco, categoria) values ("Vestido", "C&A",39.90, "Infantil");
 insert into tb_produtos(nome, marca, preco, categoria) values ("Bolsa Cara", "Gucci", 2999.90, "Adulto");
@@ -22,10 +26,15 @@ insert into tb_produtos(nome, marca, preco, categoria) values ("Short Jeans", "C
 insert into tb_produtos(nome, marca, preco, categoria) values ("Jaqueta", "C&A", 129.90, "Adulto");
 insert into tb_produtos(nome, marca, preco, categoria) values ("Short", "C&A", 29.90, "Infantil");
 
-select * from tb_produtos where preco > 500;
 
+-- selecionando todos produtos que custam mais que 500
+select * from tb_produtos where preco > 500;
+-- selecionando todos produtos que custam menos que 500
 select * from tb_produtos where preco < 500;
 
+-- atualizando a tabela. 
+-- atualizando para "Vestido Rosa" o nome cujo id é igual a 3;
 update tb_produtos set nome = "Vestido Rosa"  where id = 3;
 
+-- selecionando todos os dados para leitura da tabela
 select * from tb_produtos;
