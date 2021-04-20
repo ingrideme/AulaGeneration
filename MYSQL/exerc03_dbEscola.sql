@@ -1,9 +1,9 @@
--- criando o database (db)
+-- criando o database (db);
 create database db_escola;
--- selecionando o database (db)
+-- selecionando o database (db);
 use db_escola;
 
--- criando a tabela de alunos tb_alunos
+-- criando a tabela de alunos tb_alunos;
 create table tb_alunos(
 	id bigint auto_increment,
     nome varchar(20) NOT NULL, 
@@ -15,7 +15,7 @@ create table tb_alunos(
     primary key (id)
 );
 
--- inserindo dados na tabela tb_alunos
+-- inserindo dados na tabela tb_alunos;
 INSERT INTO tb_alunos (nome, ra, nota, turma_id, ativo) VALUES ("Ingrid", 1234, 10, 20, true);
 INSERT INTO tb_alunos (nome, ra, nota, turma_id, ativo) VALUES ("Jeruza", 4321, 10, 20, true);
 INSERT INTO tb_alunos (nome, ra, nota, turma_id, ativo) VALUES ("Talita", 3333, 10, 20, true);
@@ -30,6 +30,6 @@ select * from tb_alunos where nota > 7;
 -- selecionando todos alunos que possuem notas menoresque 7;
 select * from tb_alunos where nota < 7;
 
--- atualizando a tabela. 
+-- atualizando a tabela; 
 -- atualizando o nome para "Michele" onde o id é igual a 6;
 update tb_alunos set nome = "Michele" where id = 6;
