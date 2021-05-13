@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,10 +25,11 @@ public class PostagemModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull
+	@NotEmpty(message="O texto deve ser preenchido")	
 	@Size(min = 5, max = 100)
 	private String titulo;
 
+	@NotEmpty(message="O texto deve ser preenchido")	
 	@NotNull
 	@Size(min = 10, max = 500)
 	private String texto;
@@ -36,6 +38,15 @@ public class PostagemModel {
 	private Date data = new java.sql.Date(System.currentTimeMillis());
 	public long getId() {
 		return id;
+	}
+	
+	public PostagemModel() {
+	
+	}
+	
+	public PostagemModel(String titulo, String texto) {
+			this.texto = texto;
+			this.titulo = titulo;
 	}
 	
 	public void setId(long id) {
